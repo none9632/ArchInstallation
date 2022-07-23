@@ -38,7 +38,6 @@ systemctl enable NetworkManager
 mkdir /home/$name/Projects
 git clone https://github.com/none9632/mydotfiles /home/$name/Projects/mydotfiles
 git clone https://github.com/none9632/.emacs.d /home/$name/.emacs.d
-/home/$name/Projects/mydotfiles/install.sh
 
 # grub-install --target=i386-pc /dev/sda
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
