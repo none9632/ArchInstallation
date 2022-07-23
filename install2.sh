@@ -31,16 +31,6 @@ sed -i -e 's/#Color/Color/g' /etc/pacman.conf
 sed -i -e 's/#VerbosePkgLists/VerbosePkgLists/g' /etc/pacman.conf
 sed -i -e 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 
-# yay installation
-cd $(mktemp -d)
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg --noconfirm -scri
-
-# Setting display manager
-yay --noconfirm --needed -S $ly
-systemctl enable ly
-
 # network configuration
 systemctl enable NetworkManager
 
