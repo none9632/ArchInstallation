@@ -36,7 +36,7 @@ systemctl enable NetworkManager
 
 # My own configuration
 mkdir /home/$name/Projects
-git clone https://github.com/none9632/mydotfiles /home/$name/Projects
+git clone https://github.com/none9632/mydotfiles /home/$name/Projects/mydotfiles
 git clone https://github.com/none9632/.emacs.d /home/$name/.emacs.d
 /home/$name/Projects/mydotfiles/install.sh
 
