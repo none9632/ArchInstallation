@@ -31,6 +31,21 @@ sed -i -e 's/#Color/Color/g' /etc/pacman.conf
 sed -i -e 's/#VerbosePkgLists/VerbosePkgLists/g' /etc/pacman.conf
 sed -i -e 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 
+# Touchpad fix for my laptop (https://bbs.archlinux.org/viewtopic.php?id=263407)
+echo "[Unit]
+Description=I hope hope hope this works
+Conflicts=getty@tty1.service
+After=systemd-user-sessions.service getty@tty1.service systemd-logind.service
+
+[Service]
+ExecStart=/usr/bin/bash -c '\
+  /usr/bin/modprobe -r i2c_hid; \
+  /usr/bin/modprobe i2c_hid'
+
+[Install]
+WantedBy=multi-user.target" > /etc/systemd/system/touchpadfix.service
+systemctl enable touchpadfix.service
+
 # network configuration
 systemctl enable NetworkManager
 
