@@ -31,6 +31,16 @@ sed -i -e 's/#Color/Color/g' /etc/pacman.conf
 sed -i -e 's/#VerbosePkgLists/VerbosePkgLists/g' /etc/pacman.conf
 sed -i -e 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 
+# Touchpad configuration
+echo "Section "InputClass"
+    Identifier "devname"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+        Option "Tapping" "on"
+        Option "HorizontalScrolling" "on"
+        Option "TappingButtonMap" "lrm"
+EndSection" > /etc/X11/xorg.conf.d/40-libinput.conf
+
 # Touchpad fix for my laptop (https://bbs.archlinux.org/viewtopic.php?id=263407)
 echo "[Unit]
 Description=I hope hope hope this works
