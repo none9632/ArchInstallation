@@ -59,6 +59,8 @@ systemctl enable touchpadfix.service
 # network configuration
 systemctl enable NetworkManager
 systemctl enable iwd
+systemctl enable dhcpcd
+ip route add default via 192.168.1.1 dev wlan0
 
 # My own configuration
 folders="/home/$name/Projects /home/$name/Pictures /home/$name/Downloads"
