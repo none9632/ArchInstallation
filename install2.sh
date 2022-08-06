@@ -68,6 +68,10 @@ git clone https://github.com/none9632/.emacs.d /home/$name/.emacs.d
 chown -R $name $folders /home/$name/.emacs.d
 chgrp -R $name $folders /home/$name/.emacs.d
 
+# git configuration
+git config --global user.email "none9632@protonmail.com"
+git config --global user.name "none9632"
+
 # grub-install --target=i386-pc /dev/sda
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
