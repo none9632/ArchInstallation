@@ -32,6 +32,7 @@ sed -i -e 's/#VerbosePkgLists/VerbosePkgLists/g' /etc/pacman.conf
 sed -i -e 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 
 # Touchpad configuration
+mkdir -p /etc/X11/xorg.conf.d
 echo "Section "InputClass"
     Identifier "devname"
     Driver "libinput"
