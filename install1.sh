@@ -41,7 +41,7 @@ swapon $swap_partition
 pacstrap /mnt base base-devel\
               linux-zen linux-firmware\
               amd-ucode grub efibootmgr\
-              git cmake networkmanager\
+              git cmake networkmanager iwd\
               mesa xf86-video-amdgpu\
               xf86-input-synaptics xf86-input-libinput
 # Generate an fstab file

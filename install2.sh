@@ -58,13 +58,15 @@ systemctl enable touchpadfix.service
 
 # network configuration
 systemctl enable NetworkManager
+systemctl enable iwd
 
 # My own configuration
-mkdir /home/$name/Projects
+folders="/home/$name/Projects /home/$name/Pictures /home/$name/Downloads"
+mkdir $folders
 git clone https://github.com/none9632/mydotfiles /home/$name/Projects/mydotfiles
 git clone https://github.com/none9632/.emacs.d /home/$name/.emacs.d
-chown -R $name /home/$name/Projects /home/$name/.emacs.d
-chgrp -R $name /home/$name/Projects /home/$name/.emacs.d
+chown -R $name $folders /home/$name/.emacs.d
+chgrp -R $name $folders /home/$name/.emacs.d
 
 # grub-install --target=i386-pc /dev/sda
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
