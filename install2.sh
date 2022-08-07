@@ -33,13 +33,13 @@ sed -i -e 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 
 # Touchpad configuration
 mkdir -p /etc/X11/xorg.conf.d
-echo "Section "InputClass"
-    Identifier "devname"
-    Driver "libinput"
-    MatchIsTouchpad "on"
-        Option "Tapping" "on"
-        Option "HorizontalScrolling" "on"
-        Option "TappingButtonMap" "lrm"
+echo "Section \"InputClass\"
+    Identifier \"devname\"
+    Driver \"libinput\"
+    MatchIsTouchpad \"on\"
+        Option \"Tapping\" \"on\"
+        Option \"HorizontalScrolling\" \"on\"
+        Option \"TappingButtonMap\" \"lrm\"
 EndSection" > /etc/X11/xorg.conf.d/40-libinput.conf
 
 # Touchpad fix for my laptop (https://bbs.archlinux.org/viewtopic.php?id=263407)
