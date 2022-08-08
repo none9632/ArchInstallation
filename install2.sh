@@ -31,32 +31,6 @@ sed -i -e 's/#Color/Color/g' /etc/pacman.conf
 sed -i -e 's/#VerbosePkgLists/VerbosePkgLists/g' /etc/pacman.conf
 sed -i -e 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 
-# Touchpad configuration
-mkdir -p /etc/X11/xorg.conf.d
-echo "Section \"InputClass\"
-    Identifier \"devname\"
-    Driver \"libinput\"
-    MatchIsTouchpad \"on\"
-        Option \"Tapping\" \"on\"
-        Option \"HorizontalScrolling\" \"on\"
-        Option \"TappingButtonMap\" \"lrm\"
-EndSection" > /etc/X11/xorg.conf.d/40-libinput.conf
-
-# Touchpad fix for my laptop (https://bbs.archlinux.org/viewtopic.php?id=263407)
-echo "[Unit]
-Description=I hope hope hope this works
-Conflicts=getty@tty1.service
-After=systemd-user-sessions.service getty@tty1.service systemd-logind.service
-
-[Service]
-ExecStart=/usr/bin/bash -c '\
-  /usr/bin/modprobe -r i2c_hid; \
-  /usr/bin/modprobe i2c_hid'
-
-[Install]
-WantedBy=multi-user.target" > /etc/systemd/system/touchpadfix.service
-systemctl enable touchpadfix.service
-
 # network configuration
 systemctl enable NetworkManager
 systemctl enable iwd
@@ -70,10 +44,6 @@ git clone https://github.com/none9632/mydotfiles /home/$name/Projects/mydotfiles
 git clone https://github.com/none9632/.emacs.d /home/$name/.emacs.d
 chown -R $name $folders /home/$name/.emacs.d
 chgrp -R $name $folders /home/$name/.emacs.d
-
-# git configuration
-git config --global user.email "none9632@protonmail.com"
-git config --global user.name "none9632"
 
 # grub-install --target=i386-pc /dev/sda
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
