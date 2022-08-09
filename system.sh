@@ -101,6 +101,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 # git configuration
 git config --global user.email "none9632@protonmail.com"
 git config --global user.name "none9632"
+git config --global credential.helper store
 
 # Touchpad configuration
 mkdir -p /etc/X11/xorg.conf.d
