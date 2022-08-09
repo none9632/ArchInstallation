@@ -8,7 +8,7 @@ pkgs="alacritty neofetch zsh pkgfile fzf\
       bc wget xclip xf86-input-synaptics xf86-input-libinput xdotool xsel xkb-switch\
       alsa-utils pulseaudio pulseaudio-alsa\
       rofi flameshot\
-      emacs neovim\
+      emacs neovim pip\
       lf-bin zoxide rm-improved bc ueberzug udiskie\
       librewolf-bin firefox tor-browser\
       nerd-fonts-source-code-pro ttf-iosevka-nerd ttf-roboto\
@@ -56,10 +56,10 @@ sudo sed -i -e 's/#VerbosePkgLists/VerbosePkgLists/g' /etc/pacman.conf
 sudo sed -i -e 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 
 # My own configuration
-# folders="/home/$name/Projects /home/$name/Pictures /home/$name/Downloads"
-# mkdir $folders
-# git clone https://github.com/none9632/mydotfiles /home/$name/Projects/mydotfiles
-# git clone https://github.com/none9632/.emacs.d /home/$name/.emacs.d
+folders="$HOME/Projects $HOME/Pictures $HOME/Downloads"
+mkdir $folders
+git clone https://github.com/none9632/mydotfiles $HOME/Projects/mydotfiles
+git clone https://github.com/none9632/.emacs.d $HOME/.emacs.d
 
 # setting display manager
 sudo systemctl enable ly
