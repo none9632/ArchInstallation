@@ -25,25 +25,12 @@ usermod -aG wheel,audio,video,optical,storage $name
 
 # sudo configuration
 sed -i -e 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/g' /etc/sudoers
-echo "$name myPC= NOPASSWD: /usr/bin/yay -Syy,/usr/bin/pacman -Sql" >> /etc/sudoers
-# pacman configuration
-sed -i -e 's/#Color/Color/g' /etc/pacman.conf
-sed -i -e 's/#VerbosePkgLists/VerbosePkgLists/g' /etc/pacman.conf
-sed -i -e 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 
 # network configuration
 systemctl enable NetworkManager
 systemctl enable iwd
 systemctl enable dhcpcd
 ip route add default via 192.168.1.1 dev wlan0
-
-# My own configuration
-folders="/home/$name/Projects /home/$name/Pictures /home/$name/Downloads"
-mkdir $folders
-git clone https://github.com/none9632/mydotfiles /home/$name/Projects/mydotfiles
-git clone https://github.com/none9632/.emacs.d /home/$name/.emacs.d
-chown -R $name $folders /home/$name/.emacs.d
-chgrp -R $name $folders /home/$name/.emacs.d
 
 # grub-install --target=i386-pc /dev/sda
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
