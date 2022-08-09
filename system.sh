@@ -2,8 +2,51 @@
 
 # My personal system configuration
 
+# list of packages that will be installed
+pkgs="alacritty neofetch zsh pkgfile fzf \
+      awesome-git xorg feh ly betterlockscreen\
+      bc wget xclip xf86-input-synaptics xf86-input-libinput xdotool xsel xkb-switch\
+      alsa-utils pulseaudio pulseaudio-alsa\
+      rofi flameshot\
+      emacs neovim\
+      lf-bin zoxide rm-improved bc ueberzug udiskie\
+      librewolf-bin firefox tor-browser\
+      nerd-fonts-source-code-pro ttf-iosevka-nerd ttf-roboto\
+      picom-animations-git\
+      brightnessctl\
+      dunst\
+      evince eog\
+      font-manager\
+      nextcloud-client libsecret gnome-keyring\
+      gpick\
+      exa bat\
+      unrar p7zip unzip\
+      texlive-core texlive-bin texlive-latexextra texlive-langextra texlive-formatsextra texlive-fontsextra\
+      texlive-humanities texlive-science texlive-publishers texlive-langcyrillic texlive-langgreek"
+
 if [[ ! "$EUID" = 0 ]]; then
     sudo ls /root
+fi
+
+# install yay
+if [[ ! -f $(which yay) ]]
+then
+    cd $(mktemp -d)
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg --noconfirm -scri
+fi
+
+# install the necessary packages
+yay --noconfirm --needed -S $pkgs
+
+if [[ ! -f $(which vcp) ]]
+then
+    cd $(mktemp -d)
+    git clone https://github.com/none9632/VCP
+    cd VCP
+    make
+    sudo make install
 fi
 
 # sudo configuration
@@ -87,7 +130,6 @@ ExecStart=/usr/bin/bash -c '\
 [Install]
 WantedBy=multi-user.target" | sudo tee /etc/systemd/system/touchpadfix.service
 sudo systemctl enable touchpadfix.service
-
 
 # changed default browser
 mimeapps_dir="$HOME/.local/share/applications"
