@@ -3,8 +3,8 @@
 # My personal system configuration
 
 # list of packages that will be installed
-pkgs="alacritty neofetch zsh pkgfile fzf \
-      awesome-git xorg feh ly betterlockscreen\
+pkgs="alacritty neofetch zsh pkgfile fzf\
+      awesome-git xorg feh ly betterlockscreen picom-animations-git\
       bc wget xclip xf86-input-synaptics xf86-input-libinput xdotool xsel xkb-switch\
       alsa-utils pulseaudio pulseaudio-alsa\
       rofi flameshot\
@@ -12,13 +12,10 @@ pkgs="alacritty neofetch zsh pkgfile fzf \
       lf-bin zoxide rm-improved bc ueberzug udiskie\
       librewolf-bin firefox tor-browser\
       nerd-fonts-source-code-pro ttf-iosevka-nerd ttf-roboto\
-      picom-animations-git\
       brightnessctl\
       dunst\
-      evince eog\
-      font-manager\
+      evince eog gpick font-manager\
       nextcloud-client libsecret gnome-keyring\
-      gpick\
       exa bat\
       unrar p7zip unzip\
       texlive-core texlive-bin texlive-latexextra texlive-langextra texlive-formatsextra texlive-fontsextra\
