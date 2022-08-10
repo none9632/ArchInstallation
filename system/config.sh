@@ -60,7 +60,7 @@ mkdir -p $HOME/.config/git
 touch $HOME/.conifg/git/config
 git config --global user.email "none9632@protonmail.com"
 git config --global user.name "none9632"
-git config --global credential.helper store
+git config --global credential.helper 'store --file=$HOME/.cache/git/git_credentials'
 
 # Touchpad configuration
 mkdir -p /etc/X11/xorg.conf.d
