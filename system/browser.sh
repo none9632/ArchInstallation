@@ -41,7 +41,7 @@ then
         if [ "$addon_id" != "" ]
         then
             cp $dir/$file $librewolf_extensions_dir/${addon_id}.xpi
-            # cp $dir/$file $firefox_extensions_dir/${addon_id}.xpi
+            cp $dir/$file $firefox_extensions_dir/${addon_id}.xpi
             echo "done"
         else
             echo "error"
