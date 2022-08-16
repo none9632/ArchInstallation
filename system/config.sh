@@ -3,7 +3,7 @@
 # My personal system configuration
 
 # sudo configuration
-echo "$(whoami) myPC= NOPASSWD: /usr/bin/yay -Syy,/usr/bin/pacman -Sql" |
+echo "$(whoami) $(hostnamectl --static)= NOPASSWD: /usr/bin/yay -Syy,/usr/bin/pacman -Sql" |
     sudo tee -a /etc/sudoers
 
 # pacman configuration
@@ -56,7 +56,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 pip install pynvim
 
 # git configuration
-mkdir -p $HOME/.config/git
+mkdir -p $HOME/.config/git $HOME/.cache/git
 touch $HOME/.config/git/config
 git config --global user.email "none9632@protonmail.com"
 git config --global user.name "none9632"
