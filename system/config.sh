@@ -57,7 +57,7 @@ pip install pynvim
 
 # git configuration
 mkdir -p $HOME/.config/git
-touch $HOME/.conifg/git/config
+touch $HOME/.config/git/config
 git config --global user.email "none9632@protonmail.com"
 git config --global user.name "none9632"
 git config --global credential.helper 'store --file=$HOME/.cache/git/git_credentials'
